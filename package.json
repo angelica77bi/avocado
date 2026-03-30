@@ -1,0 +1,38 @@
+{
+  "name": "avocado",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint",
+    "scrape:news": "node scripts/scrape-news.js",
+    "scrape:news:schedule": "node scripts/scrape-news.js --schedule",
+    "deploy": "npm run build && wrangler pages deploy",
+    "deploy:prod": "npm run build && wrangler pages deploy --branch=main"
+  },
+  "dependencies": {
+    "axios": "^1.12.2",
+    "cheerio": "^1.1.2",
+    "gray-matter": "^4.0.3",
+    "next": "16.1.6",
+    "next-intl": "^4.8.2",
+    "node-cron": "^4.2.1",
+    "react": "19.2.3",
+    "react-dom": "19.2.3",
+    "remark": "^15.0.1",
+    "remark-html": "^16.0.1"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "eslint": "^9",
+    "eslint-config-next": "16.1.6",
+    "tailwindcss": "^4",
+    "typescript": "^5",
+    "wrangler": "^4.65.0"
+  }
+}
