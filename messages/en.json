@@ -199,5 +199,27 @@
       "title": "Built for faster clean-energy transactions",
       "description": "Carbon Ledger provides shared market context and execution infrastructure so teams can move from sourcing to signed terms with less friction."
     }
+  },
+  "Solutions": {
+    "meta": {
+      "title": "Solutions | Carbon Ledger",
+      "description": "Transaction infrastructure for buyers, developers, and advisors."
+    },
+    "header": {
+      "eyebrow": "Solutions",
+      "title": "Built for every side of the transaction",
+      "description": "Whether you are sourcing renewable energy, developing projects, or advising clients, Carbon Ledger provides the workspace to close deals faster."
+    }
+  },
+  "MarketData": {
+    "meta": {
+      "title": "Market Data | Carbon Ledger",
+      "description": "Real-time pricing and risk analytics for clean energy markets."
+    },
+    "header": {
+      "eyebrow": "Market Data",
+      "title": "Transparency for better decisions",
+      "description": "Access aggregated pricing records, basis risk signals, and comparable transaction data across major energy markets."
+    }
   }
 }

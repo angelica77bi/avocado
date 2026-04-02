@@ -1,15 +1,15 @@
-import type {RecourseCopy} from "@/lib/recourse";
+import type {ResourceCopy} from "@/lib/resources";
 
-type RecoursePageProps = {
-  copy: RecourseCopy;
+type ResourcesPageProps = {
+  copy: ResourceCopy;
 };
 
-export default function RecoursePage({copy}: RecoursePageProps) {
+export default function ResourcesPage({copy}: ResourcesPageProps) {
   return (
-    <main className="recourse-main">
-      <div className="container recourse-layout">
-        <section className="recourse-panel recourse-panel-hero reveal">
-          <div className="recourse-center">
+    <main className="resources-main">
+      <div className="container resources-layout">
+        <section className="resources-panel resources-panel-hero reveal">
+          <div className="resources-center">
             <p className="eyebrow">{copy.hero.eyebrow}</p>
             <h1>{copy.hero.title}</h1>
             <p className="hero-text">{copy.hero.description}</p>
@@ -34,7 +34,7 @@ export default function RecoursePage({copy}: RecoursePageProps) {
           </div>
         </section>
 
-        <section className="recourse-panel recourse-panel-split">
+        <section className="resources-panel resources-panel-split">
           <p className="eyebrow">{copy.featured.eyebrow}</p>
           <h2>{copy.featured.title}</h2>
           <div className="resource-grid featured-grid stagger">
@@ -52,7 +52,7 @@ export default function RecoursePage({copy}: RecoursePageProps) {
           </div>
         </section>
 
-        <section className="recourse-panel recourse-panel-split recourse-panel-library">
+        <section className="resources-panel resources-panel-split resources-panel-library">
           <div className="library-box">
             <p className="eyebrow">{copy.library.eyebrow}</p>
             <h2>{copy.library.title}</h2>
@@ -70,7 +70,7 @@ export default function RecoursePage({copy}: RecoursePageProps) {
           </div>
         </section>
 
-        <section className="recourse-panel recourse-panel-full">
+        <section className="resources-panel resources-panel-full">
           <p className="eyebrow">{copy.resources.eyebrow}</p>
           <h2>{copy.resources.title}</h2>
           <div className="resource-grid stagger">
@@ -88,8 +88,8 @@ export default function RecoursePage({copy}: RecoursePageProps) {
           </div>
         </section>
 
-        <section className="recourse-panel recourse-panel-full">
-          <div className="recourse-subscribe">
+        <section className="resources-panel resources-panel-full">
+          <div className="resources-subscribe">
             <p className="eyebrow">{copy.subscribe.eyebrow}</p>
             <h2>{copy.subscribe.title}</h2>
             <p>{copy.subscribe.description}</p>

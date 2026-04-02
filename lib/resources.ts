@@ -1,6 +1,6 @@
-export type RecourseLocale = "en" | "zh";
+export type ResourceLocale = "en" | "zh";
 
-export type RecourseResource = {
+export type ResourceItem = {
   type: string;
   title: string;
   description: string;
@@ -8,7 +8,7 @@ export type RecourseResource = {
   href: string;
 };
 
-export type RecourseCopy = {
+export type ResourceCopy = {
   meta: {
     title: string;
     description: string;
@@ -27,7 +27,7 @@ export type RecourseCopy = {
   featured: {
     eyebrow: string;
     title: string;
-    items: RecourseResource[];
+    items: ResourceItem[];
   };
   library: {
     eyebrow: string;
@@ -39,7 +39,7 @@ export type RecourseCopy = {
   resources: {
     eyebrow: string;
     title: string;
-    items: RecourseResource[];
+    items: ResourceItem[];
   };
   subscribe: {
     eyebrow: string;
@@ -52,7 +52,7 @@ export type RecourseCopy = {
   };
 };
 
-export const recourseContent: Record<RecourseLocale, RecourseCopy> = {
+export const resourceContent: Record<ResourceLocale, ResourceCopy> = {
   en: {
     meta: {
       title: "Resources | Carbon Ledger",
@@ -169,7 +169,7 @@ export const recourseContent: Record<RecourseLocale, RecourseCopy> = {
     },
     subscribe: {
       eyebrow: "Stay Current",
-      title: "Get monthly recourse updates",
+      title: "Get monthly resource updates",
       description:
         "Receive one digest with the latest procurement insights, transaction templates and market briefs.",
       action: "Subscribe"

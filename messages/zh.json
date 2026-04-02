@@ -199,5 +199,27 @@
       "title": "为更快的清洁能源交易而生",
       "description": "Carbon Ledger 提供共享的市场背景和执行基础设施，使团队能够以更少的摩擦从寻源转向签约条款。"
     }
+  },
+  "Solutions": {
+    "meta": {
+      "title": "解决方案 | Carbon Ledger",
+      "description": "为买方、开发商和顾问提供的交易基础设施。"
+    },
+    "header": {
+      "eyebrow": "解决方案",
+      "title": "为交易的每一方而设计",
+      "description": "无论您是在寻找可再生能源、开发项目还是为客户提供建议，Carbon Ledger 都为您提供了更快达成交易的工作区。"
+    }
+  },
+  "MarketData": {
+    "meta": {
+      "title": "市场数据 | Carbon Ledger",
+      "description": "清洁能源市场的实时定价和风险分析。"
+    },
+    "header": {
+      "eyebrow": "市场数据",
+      "title": "让决策更透明",
+      "description": "获取主要能源市场的汇总定价记录、基差风险信号和可比交易数据。"
+    }
   }
 }
