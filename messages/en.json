@@ -234,6 +234,31 @@
       "eyebrow": "About",
       "title": "Built for faster clean-energy transactions",
       "description": "Carbon Ledger provides shared market context and execution infrastructure so teams can move from sourcing to signed terms with less friction."
+    },
+    "mission": {
+      "title": "Our Mission",
+      "text": "To accelerate the global transition to zero-carbon energy by providing the transaction infrastructure needed to close renewable energy deals at scale."
+    },
+    "vision": {
+      "title": "Our Vision",
+      "text": "A world where clean energy procurement is as transparent, efficient, and accessible as any modern financial marketplace."
+    },
+    "values": {
+      "title": "Core Principles",
+      "items": [
+        {
+          "title": "Transparency",
+          "text": "Aggregating market data to reduce information asymmetry between buyers and developers."
+        },
+        {
+          "title": "Efficiency",
+          "text": "Standardizing workflows to shorten transaction cycles from months to weeks."
+        },
+        {
+          "title": "Bankability",
+          "text": "Ensuring every transaction meets the highest standards of financial and legal rigor."
+        }
+      ]
     }
   },
   "Solutions": {
@@ -245,6 +270,35 @@
       "eyebrow": "Solutions",
       "title": "Built for every side of the transaction",
       "description": "Whether you are sourcing renewable energy, developing projects, or advising clients, Carbon Ledger provides the workspace to close deals faster."
+    },
+    "roles": {
+      "buyers": {
+        "title": "For Buyers",
+        "description": "Streamline your procurement strategy with data-driven insights.",
+        "features": [
+          "Cross-market price benchmarking",
+          "Risk-adjusted term sheet comparison",
+          "Automated RFP workflow management"
+        ]
+      },
+      "developers": {
+        "title": "For Developers",
+        "description": "Showcase your assets to qualified capital and off-takers.",
+        "features": [
+          "Centralized project marketing hub",
+          "Continuous market feedback signals",
+          "Secure data room for diligence"
+        ]
+      },
+      "advisors": {
+        "title": "For Advisors",
+        "description": "Scale your execution capacity with standardized toolsets.",
+        "features": [
+          "Unified modeling assumptions",
+          "Collaborative negotiation workspace",
+          "Portfolio-wide reporting & analytics"
+        ]
+      }
     }
   },
   "MarketData": {
@@ -256,6 +310,31 @@
       "eyebrow": "Market Data",
       "title": "Transparency for better decisions",
       "description": "Access aggregated pricing records, basis risk signals, and comparable transaction data across major energy markets."
+    },
+    "dashboard": {
+      "title": "Market Pulse Dashboard",
+      "stats": {
+        "pricing": "Pricing Records",
+        "projects": "Active Projects",
+        "markets": "Markets Covered",
+        "cycle": "Update Cycle"
+      }
+    },
+    "regions": {
+      "title": "Regional Price Benchmarks",
+      "description": "Indicative pricing for utility-scale renewable energy attributes and PPAs.",
+      "headers": {
+        "region": "Market / Region",
+        "tech": "Technology",
+        "price": "Benchmark Price",
+        "trend": "24h Trend"
+      },
+      "items": [
+        {"region": "EU South", "tech": "Solar PV", "price": "€42.50 / MWh", "trend": "+1.2%"},
+        {"region": "US ERCOT", "tech": "Wind", "price": "$38.20 / MWh", "trend": "-0.5%"},
+        {"region": "APAC SE", "tech": "Solar PV", "price": "$45.80 / MWh", "trend": "+2.1%"},
+        {"region": "Nordics", "tech": "Hydro/Wind", "price": "€35.40 / MWh", "trend": "Stable"}
+      ]
     }
   },
   "Footer": {
