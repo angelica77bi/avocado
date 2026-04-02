@@ -1,4 +1,5 @@
 import Link from "next/link";
+import {useTranslations} from "next-intl";
 
 type NewsPaginationProps = {
   basePath: string;
@@ -15,6 +16,8 @@ export default function NewsPagination({
   currentPage,
   totalPages
 }: NewsPaginationProps) {
+  const t = useTranslations("Insights.pagination");
+
   if (totalPages <= 1) {
     return null;
   }
@@ -24,7 +27,7 @@ export default function NewsPagination({
   return (
     <nav
       className="mt-10 flex flex-wrap items-center justify-center gap-2"
-      aria-label="News pagination"
+      aria-label={t("ariaLabel")}
     >
       <Link
         href={pageHref(basePath, Math.max(1, currentPage - 1))}
@@ -35,7 +38,7 @@ export default function NewsPagination({
             : "border-[var(--line-strong)] bg-[var(--surface)] text-[var(--foreground)] hover:border-[var(--accent)] hover:text-[var(--accent)]"
         }`}
       >
-        Previous
+        {t("previous")}
       </Link>
 
       {pages.map((page) => {
@@ -65,7 +68,7 @@ export default function NewsPagination({
             : "border-[var(--line-strong)] bg-[var(--surface)] text-[var(--foreground)] hover:border-[var(--accent)] hover:text-[var(--accent)]"
         }`}
       >
-        Next
+        {t("next")}
       </Link>
     </nav>
   );

@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import type {NewsPostSummary} from "@/lib/news";
 import {formatPostDate} from "@/lib/news";
+import {useTranslations} from "next-intl";
 
 type NewsCardProps = {
   post: NewsPostSummary;
@@ -10,6 +11,7 @@ type NewsCardProps = {
 };
 
 export default function NewsCard({post, locale, basePath}: NewsCardProps) {
+  const t = useTranslations("Insights");
   const href = `${basePath}/${post.slug}`;
 
   return (
@@ -50,9 +52,10 @@ export default function NewsCard({post, locale, basePath}: NewsCardProps) {
 
         <Link
           href={href}
+          aria-label={`${t("readMore")}: ${post.title}`}
           className="inline-flex items-center text-sm font-semibold tracking-wide text-[var(--accent)] transition hover:text-[var(--accent-strong)]"
         >
-          Read insight
+          {t("readMore")}
           <span className="ml-2" aria-hidden>
             →
           </span>

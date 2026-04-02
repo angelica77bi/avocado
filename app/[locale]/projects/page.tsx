@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { setRequestLocale } from "next-intl/server";
+import { setRequestLocale, getTranslations } from "next-intl/server";
 import ProjectsPageShell from "@/components/projects/ProjectsPageShell";
 import { toAbsoluteUrl } from "@/lib/site";
 
@@ -11,24 +11,25 @@ export async function generateMetadata({
   params
 }: ProjectsPageProps): Promise<Metadata> {
   const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "Projects" });
   const canonicalPath = `/${locale}/projects`;
 
   return {
-    title: "Projects | Carbon Ledger",
-    description: "Explore current clean-energy projects and transaction opportunities.",
+    title: t("meta.title"),
+    description: t("meta.description"),
     alternates: {
       canonical: canonicalPath
     },
     openGraph: {
-      title: "Projects | Carbon Ledger",
-      description: "Explore current clean-energy projects and transaction opportunities.",
+      title: t("meta.title"),
+      description: t("meta.description"),
       type: "website",
       url: toAbsoluteUrl(canonicalPath)
     },
     twitter: {
       card: "summary_large_image",
-      title: "Projects | Carbon Ledger",
-      description: "Explore current clean-energy projects and transaction opportunities."
+      title: t("meta.title"),
+      description: t("meta.description")
     }
   };
 }

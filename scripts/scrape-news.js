@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+/* eslint-disable @typescript-eslint/no-require-imports */
 
 const fs = require("node:fs/promises");
 const path = require("node:path");
@@ -76,7 +77,7 @@ const DEFAULT_SITES = [
 const OUTPUT_DIR = path.resolve(__dirname, "../content/news");
 const REQUEST_TIMEOUT_MS = 20000;
 const USER_AGENT =
-  "Mozilla/5.0 (compatible; AvocadoNewsBot/1.0; +https://example.com/bot)";
+  "Mozilla/5.0 (compatible; AvocadoNewsBot/1.0; +https://github.com/angelica77bi/avocado)";
 
 function log(level, message, extra = "") {
   const timestamp = new Date().toISOString();
@@ -328,15 +329,24 @@ function extractBodyMarkdown($, selectors, pageUrl, removeSelectors = []) {
     .trim();
 }
 
-async function fetchHtml(url) {
-  const response = await axios.get(url, {
-    timeout: REQUEST_TIMEOUT_MS,
-    headers: {
-      "User-Agent": USER_AGENT,
-      Accept: "text/html,application/xhtml+xml",
-    },
-  });
-  return response.data;
+async function fetchHtml(url, retries = 3) {
+  for (let i = 0; i < retries; i += 1) {
+    try {
+      const response = await axios.get(url, {
+        timeout: REQUEST_TIMEOUT_MS,
+        headers: {
+          "User-Agent": USER_AGENT,
+          Accept: "text/html,application/xhtml+xml",
+        },
+      });
+      return response.data;
+    } catch (error) {
+      if (i === retries - 1) throw error;
+      const delay = Math.pow(2, i) * 1000;
+      log("warn", `Fetch failed for ${url}, retrying in ${delay}ms...`, error.message);
+      await new Promise((resolve) => setTimeout(resolve, delay));
+    }
+  }
 }
 
 async function getExistingSlugs(outputDir) {
@@ -465,6 +475,7 @@ async function enrichArticle(siteConfig, baseArticle) {
 async function scrapeNewsSites(siteConfigs) {
   const stats = { saved: 0, skipped: 0, failed: 0 };
   const slugSet = await getExistingSlugs(OUTPUT_DIR);
+  const CONCURRENCY_LIMIT = 5;
 
   for (const siteConfig of siteConfigs) {
     log("info", `Scraping site: ${siteConfig.name}`, siteConfig.url);
@@ -477,40 +488,46 @@ async function scrapeNewsSites(siteConfigs) {
 
       log("info", `Found candidate cards: ${candidates.length}`, siteConfig.name);
 
-      for (const card of candidates) {
-        try {
-          const article = await enrichArticle(siteConfig, card);
-          const searchable = `${article.title}\n${article.summary}\n${article.body}`;
-          const tags = detectKeywordTags(searchable);
+      // Process candidates in chunks for concurrency control
+      for (let i = 0; i < candidates.length; i += CONCURRENCY_LIMIT) {
+        const chunk = candidates.slice(i, i + CONCURRENCY_LIMIT);
+        await Promise.all(
+          chunk.map(async (card) => {
+            try {
+              const article = await enrichArticle(siteConfig, card);
+              const searchable = `${article.title}\n${article.summary}\n${article.body}`;
+              const tags = detectKeywordTags(searchable);
 
-          if (tags.length === 0) {
-            stats.skipped += 1;
-            continue;
-          }
+              if (tags.length === 0) {
+                stats.skipped += 1;
+                return;
+              }
 
-          const slugBase = slugify(article.title) || slugify(article.url);
-          if (!slugBase) {
-            stats.failed += 1;
-            log("warn", "Could not create slug for article", article.url);
-            continue;
-          }
+              const slugBase = slugify(article.title) || slugify(article.url);
+              if (!slugBase) {
+                stats.failed += 1;
+                log("warn", "Could not create slug for article", article.url);
+                return;
+              }
 
-          if (slugSet.has(slugBase)) {
-            stats.skipped += 1;
-            log("info", "Skipping duplicate slug", slugBase);
-            continue;
-          }
+              if (slugSet.has(slugBase)) {
+                stats.skipped += 1;
+                log("info", "Skipping duplicate slug", slugBase);
+                return;
+              }
 
-          const markdown = buildMarkdown({ ...article, tags });
-          const targetPath = path.join(OUTPUT_DIR, `${slugBase}.md`);
-          await fs.writeFile(targetPath, markdown, "utf8");
-          slugSet.add(slugBase);
-          stats.saved += 1;
-          log("info", "Saved article", targetPath);
-        } catch (error) {
-          stats.failed += 1;
-          log("error", "Article processing failed", `${card.url} | ${error.message}`);
-        }
+              const markdown = buildMarkdown({ ...article, tags });
+              const targetPath = path.join(OUTPUT_DIR, `${slugBase}.md`);
+              await fs.writeFile(targetPath, markdown, "utf8");
+              slugSet.add(slugBase);
+              stats.saved += 1;
+              log("info", "Saved article", targetPath);
+            } catch (error) {
+              stats.failed += 1;
+              log("error", "Article processing failed", `${card.url} | ${error.message}`);
+            }
+          })
+        );
       }
     } catch (error) {
       stats.failed += 1;

@@ -165,5 +165,39 @@
       "privacy": "Privacy",
       "terms": "Terms"
     }
+  },
+  "Insights": {
+    "eyebrow": "Insights",
+    "title": "News and Market Intelligence",
+    "description": "Corporate updates, market observations, and practical playbooks for clean energy and carbon procurement leaders.",
+    "empty": "No articles published yet.",
+    "readMore": "Read insight",
+    "meta": {
+      "title": "Insights | Carbon Ledger",
+      "description": "Latest news and market intelligence on clean energy and carbon procurement."
+    },
+    "backToAll": "Back to all insights",
+    "pagination": {
+      "ariaLabel": "News pagination",
+      "previous": "Previous",
+      "next": "Next"
+    }
+  },
+  "Projects": {
+    "meta": {
+      "title": "Projects | Carbon Ledger",
+      "description": "Explore current clean-energy projects and transaction opportunities."
+    }
+  },
+  "About": {
+    "meta": {
+      "title": "About | Carbon Ledger",
+      "description": "Mission, team, and operating principles behind Carbon Ledger."
+    },
+    "header": {
+      "eyebrow": "About",
+      "title": "Built for faster clean-energy transactions",
+      "description": "Carbon Ledger provides shared market context and execution infrastructure so teams can move from sourcing to signed terms with less friction."
+    }
   }
 }

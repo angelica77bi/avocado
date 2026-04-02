@@ -165,5 +165,39 @@
       "privacy": "隐私政策",
       "terms": "服务条款"
     }
+  },
+  "Insights": {
+    "eyebrow": "洞察",
+    "title": "新闻与市场情报",
+    "description": "为清洁能源和碳采购负责人提供的企业更新、市场观察和实用指南。",
+    "empty": "暂无已发布文章。",
+    "readMore": "查看详情",
+    "meta": {
+      "title": "洞察 | Carbon Ledger",
+      "description": "关于清洁能源和碳采购的最新新闻和市场情报。"
+    },
+    "backToAll": "回到所有洞察",
+    "pagination": {
+      "ariaLabel": "新闻分页",
+      "previous": "上一页",
+      "next": "下一页"
+    }
+  },
+  "Projects": {
+    "meta": {
+      "title": "项目 | Carbon Ledger",
+      "description": "浏览当前的清洁能源项目和交易机会。"
+    }
+  },
+  "About": {
+    "meta": {
+      "title": "关于我们 | Carbon Ledger",
+      "description": "Carbon Ledger 背后的使命、团队和运营原则。"
+    },
+    "header": {
+      "eyebrow": "关于我们",
+      "title": "为更快的清洁能源交易而生",
+      "description": "Carbon Ledger 提供共享的市场背景和执行基础设施，使团队能够以更少的摩擦从寻源转向签约条款。"
+    }
   }
 }
