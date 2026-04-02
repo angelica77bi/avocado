@@ -1,5 +1,8 @@
 import {routing} from "@/i18n/routing";
 import {getTranslations, setRequestLocale} from "next-intl/server";
+import {getPaginatedPosts} from "@/lib/news";
+import NewsCard from "@/components/news/NewsCard";
+import {Link} from "@/i18n/navigation";
 
 type TextBlock = {
   title: string;
@@ -46,8 +49,9 @@ export default async function HomePage({
   const faqs = toArray<Faq>(t.raw("faq.items"));
   const stats = toArray<Stat>(t.raw("stats.items"));
   const workflowSteps = toArray<WorkflowStep>(t.raw("workflow.steps"));
-  const footerSolutions = toArray<string>(t.raw("footer.solutions"));
-  const footerPlatform = toArray<string>(t.raw("footer.platform"));
+
+  const recentPostsData = await getPaginatedPosts(1, 3);
+  const recentPosts = recentPostsData?.posts || [];
 
   return (
     <>
@@ -131,6 +135,43 @@ export default async function HomePage({
           </div>
         </section>
 
+        {recentPosts.length > 0 && (
+          <section className="section">
+            <div className="container">
+              <div className="flex items-end justify-between mb-8">
+                <div>
+                  <p className="eyebrow">{t("recentInsights.eyebrow")}</p>
+                  <h2>{t("recentInsights.title")}</h2>
+                </div>
+                <Link
+                  href="/news"
+                  className="mb-8 hidden text-sm font-semibold uppercase tracking-wider text-[var(--accent)] transition hover:text-[var(--accent-strong)] md:block"
+                >
+                  {t("recentInsights.viewAll")} →
+                </Link>
+              </div>
+              <div className="grid gap-7 md:grid-cols-3">
+                {recentPosts.map((post) => (
+                  <NewsCard
+                    key={post.slug}
+                    post={post}
+                    locale={locale}
+                    basePath={`/${locale}/news`}
+                  />
+                ))}
+              </div>
+              <div className="mt-8 text-center md:hidden">
+                <Link
+                  href="/news"
+                  className="text-sm font-semibold uppercase tracking-wider text-[var(--accent)] transition hover:text-[var(--accent-strong)]"
+                >
+                  {t("recentInsights.viewAll")} →
+                </Link>
+              </div>
+            </div>
+          </section>
+        )}
+
         <section className="section">
           <div className="container">
             <p className="eyebrow">{t("workflow.eyebrow")}</p>
@@ -172,44 +213,6 @@ export default async function HomePage({
           </div>
         </section>
       </main>
-
-      <footer className="site-footer">
-        <div className="container footer-grid">
-          <div>
-            <p className="brand">{t("nav.brand")}</p>
-            <p>{t("footer.tagline")}</p>
-          </div>
-          <div>
-            <p className="footer-title">{t("footer.solutionsTitle")}</p>
-            {footerSolutions.map((item) => (
-              <a key={item} href="#">
-                {item}
-              </a>
-            ))}
-          </div>
-          <div>
-            <p className="footer-title">{t("footer.platformTitle")}</p>
-            {footerPlatform.map((item) => (
-              <a key={item} href="#">
-                {item}
-              </a>
-            ))}
-          </div>
-          <div>
-            <p className="footer-title">{t("footer.contactTitle")}</p>
-            <a href={`mailto:${t("footer.email")}`}>{t("footer.email")}</a>
-            <a href={`tel:${t("footer.phoneHref")}`}>{t("footer.phone")}</a>
-            <span>{t("footer.city")}</span>
-          </div>
-        </div>
-        <div className="container footer-meta">
-          <small>{t("footer.copyright")}</small>
-          <div>
-            <a href="#">{t("footer.privacy")}</a>
-            <a href="#">{t("footer.terms")}</a>
-          </div>
-        </div>
-      </footer>
     </>
   );
 }

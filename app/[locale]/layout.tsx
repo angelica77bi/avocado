@@ -6,8 +6,9 @@ import {
   setRequestLocale
 } from "next-intl/server";
 import { notFound } from "next/navigation";
-import { Link } from "@/i18n/navigation";
 import { routing } from "@/i18n/routing";
+import Footer from "@/components/layout/Footer";
+import Navbar from "@/components/layout/Navbar";
 
 type LocaleLayoutProps = Readonly<{
   children: React.ReactNode;
@@ -52,18 +53,9 @@ export default async function LocaleLayout({
   return (
     <NextIntlClientProvider messages={messages}>
       <div className="site-shell">
-        <header className="top-nav">
-          <div className="container nav-row">
-            <Link className="brand" href="/">
-              {t("nav.brand")}
-            </Link>
-            <nav className="nav-links" aria-label={t("nav.ariaLabel")}>
-              <Link href="/projects">{t("nav.projects")}</Link>
-              <Link href="/about">{t("nav.about")}</Link>
-            </nav>
-          </div>
-        </header>
+        <Navbar locale={locale} brandName={t("nav.brand")} />
         {children}
+        <Footer />
       </div>
     </NextIntlClientProvider>
   );

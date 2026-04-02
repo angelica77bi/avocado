@@ -132,6 +132,11 @@
       "title": "Make clean-energy transactions more transparent, faster and controllable",
       "action": "Talk to Sales"
     },
+    "recentInsights": {
+      "eyebrow": "Latest Updates",
+      "title": "Recent Industry Insights",
+      "viewAll": "View all news"
+    },
     "faq": {
       "eyebrow": "FAQ",
       "title": "Frequently asked questions",
@@ -187,6 +192,36 @@
     "meta": {
       "title": "Projects | Carbon Ledger",
       "description": "Explore current clean-energy projects and transaction opportunities."
+    },
+    "header": {
+      "eyebrow": "Project Listing",
+      "title": "Renewable energy project database",
+      "description": "Explore placeholder listings for utility-scale solar, wind, storage, and hybrid assets across different markets."
+    },
+    "search": {
+      "placeholder": "Search projects...",
+      "label": "Search projects"
+    },
+    "filter": {
+      "button": "Filter",
+      "title": "Filters",
+      "description": "Placeholder sidebar for future project filtering.",
+      "close": "Close",
+      "sections": {
+        "country": "Country",
+        "technology": "Technology",
+        "capacity": "Capacity",
+        "developer": "Developer"
+      }
+    },
+    "list": {
+      "eyebrow": "Projects",
+      "title": "Project cards area",
+      "description": "Use the Filter button or hover at the left edge on desktop to reveal the sidebar.",
+      "card": {
+        "capacity": "Capacity",
+        "developer": "Developer"
+      }
     }
   },
   "About": {
@@ -221,5 +256,23 @@
       "title": "Transparency for better decisions",
       "description": "Access aggregated pricing records, basis risk signals, and comparable transaction data across major energy markets."
     }
+  },
+  "Footer": {
+    "tagline": "Build better clean-energy deals, faster.",
+    "solutionsTitle": "Solutions",
+    "platformTitle": "Platform",
+    "contactTitle": "Contact",
+    "solutions": ["Buyers", "Developers", "Advisors"],
+    "platform": ["Marketplace", "Analytics", "RFP Automation"],
+    "email": "hello@carbon-ledger.io",
+    "phone": "+1 (800) 555-1234",
+    "phoneHref": "+18005551234",
+    "city": "Seattle · Madrid",
+    "copyright": "© 2026 Carbon Ledger. All rights reserved.",
+    "privacy": "Privacy",
+    "terms": "Terms"
+  },
+  "Resources": {
+    "empty": "No resources found matching your criteria."
   }
 }

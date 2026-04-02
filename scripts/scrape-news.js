@@ -370,6 +370,7 @@ function buildMarkdown(article) {
     `category: "News"`,
     `source: "${escapeYamlString(article.source)}"`,
     `url: "${escapeYamlString(article.url)}"`,
+    `featuredImage: "${escapeYamlString(article.featuredImage)}"`,
     `tags: [${tagsYaml}]`,
     "---",
     "",
@@ -454,6 +455,11 @@ async function enrichArticle(siteConfig, baseArticle) {
     getDocMeta($, "meta[name='description']", "content") ||
     baseArticle.summary;
 
+  const featuredImage =
+    getDocMeta($, "meta[property='og:image']") ||
+    getDocMeta($, "meta[name='twitter:image']") ||
+    "";
+
   const body = extractBodyMarkdown(
     $,
     selectors.articleBody,
@@ -468,6 +474,7 @@ async function enrichArticle(siteConfig, baseArticle) {
     source: siteConfig.name,
     date: resolveDate(dateRaw),
     summary: normalizeWhitespace(summary),
+    featuredImage: featuredImage,
     body: finalBody,
   };
 }

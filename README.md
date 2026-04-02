@@ -1,36 +1,55 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Carbon Ledger
 
-## Getting Started
+Carbon Ledger is a transaction infrastructure platform for clean-energy procurement and project transactions. It connects buyers, developers, and advisors in a unified workspace to source, evaluate, negotiate, and close deals faster.
 
-First, run the development server:
+## 🚀 Features
+
+- **Next.js 16 (App Router)**: Built with the latest Next.js features for speed and reliability.
+- **Static Export**: Optimized for static hosting (e.g., Cloudflare Pages).
+- **Full Localization (i18n)**: Supports English (en) and Chinese (zh) using `next-intl`.
+- **Dynamic News Engine**:
+  - Automated news scraper for climate and energy insights.
+  - Concurrency-controlled and robust enrichment process.
+  - Full-text search-ready markdown storage.
+- **Resource Hub**: Practical guides, market briefings, and procurement playbooks.
+- **Market Intelligence**: Real-time pricing records and risk analytics.
+- **SEO Optimized**:
+  - Dynamic `sitemap.xml` and `robots.txt`.
+  - Localized metadata for every page.
+  - OpenGraph and Twitter card support.
+- **Tailwind CSS 4**: Modern styling with a clean, marketplace-style aesthetic.
+
+## 🛠️ Development
+
+### Setup
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Commands
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- `npm run dev`: Start the development server.
+- `npm run build`: Build the project (static export).
+- `npm run lint`: Run ESLint check.
+- `npm run scrape:news`: Run the news scraper manually.
+- `npm run scrape:news:schedule`: Start the scraper on a 12-hour schedule.
+- `npm run deploy`: Deploy to Cloudflare Pages (preview).
+- `npm run deploy:prod`: Deploy to Cloudflare Pages (production).
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 📂 Project Structure
 
-## Learn More
+- `app/[locale]/`: Localized page routes.
+- `components/`: Reusable React components (News, Projects, Resources, etc.).
+- `messages/`: JSON translation files for i18n.
+- `content/news/`: Scraped news articles stored as Markdown.
+- `scripts/`: Utility scripts (e.g., news scraper).
+- `lib/`: Shared utilities and data fetching logic.
 
-To learn more about Next.js, take a look at the following resources:
+## 🌐 Deployment
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+The project is configured for **Cloudflare Pages**.
+Production URL: [https://main.avocado-5l5.pages.dev](https://main.avocado-5l5.pages.dev)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
+Built with [Claude Code](https://github.com/anthropics/claude-code)

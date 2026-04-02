@@ -132,6 +132,11 @@
       "title": "让清洁能源交易更透明、更快、更可控",
       "action": "联系销售团队"
     },
+    "recentInsights": {
+      "eyebrow": "最新动态",
+      "title": "近期行业洞察",
+      "viewAll": "查看全部新闻"
+    },
     "faq": {
       "eyebrow": "FAQ",
       "title": "常见问题",
@@ -187,6 +192,36 @@
     "meta": {
       "title": "项目 | Carbon Ledger",
       "description": "浏览当前的清洁能源项目和交易机会。"
+    },
+    "header": {
+      "eyebrow": "项目列表",
+      "title": "可再生能源项目数据库",
+      "description": "浏览不同市场的公用事业规模太阳能、风能、储能和混合资产的占位列表。"
+    },
+    "search": {
+      "placeholder": "搜索项目...",
+      "label": "搜索项目"
+    },
+    "filter": {
+      "button": "筛选",
+      "title": "筛选器",
+      "description": "用于未来项目筛选的侧边栏占位符。",
+      "close": "关闭",
+      "sections": {
+        "country": "国家/地区",
+        "technology": "技术路线",
+        "capacity": "装机容量",
+        "developer": "开发商"
+      }
+    },
+    "list": {
+      "eyebrow": "项目",
+      "title": "项目展示区",
+      "description": "在桌面端点击“筛选”按钮或将鼠标悬停在左侧边缘以显示侧边栏。",
+      "card": {
+        "capacity": "容量",
+        "developer": "开发商"
+      }
     }
   },
   "About": {
@@ -221,5 +256,23 @@
       "title": "让决策更透明",
       "description": "获取主要能源市场的汇总定价记录、基差风险信号和可比交易数据。"
     }
+  },
+  "Footer": {
+    "tagline": "更快构建更高质量的清洁能源交易。",
+    "solutionsTitle": "解决方案",
+    "platformTitle": "平台能力",
+    "contactTitle": "联系方式",
+    "solutions": ["买方", "开发商", "顾问"],
+    "platform": ["交易市场", "数据分析", "RFP 自动化"],
+    "email": "hello@carbon-ledger.io",
+    "phone": "+1 (800) 555-1234",
+    "phoneHref": "+18005551234",
+    "city": "Seattle · Madrid",
+    "copyright": "© 2026 Carbon Ledger. 保留所有权利。",
+    "privacy": "隐私政策",
+    "terms": "服务条款"
+  },
+  "Resources": {
+    "empty": "未找到符合条件的资源。"
   }
 }
