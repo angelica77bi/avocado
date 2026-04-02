@@ -59,31 +59,8 @@ export default async function LocaleLayout({
             </Link>
             <nav className="nav-links" aria-label={t("nav.ariaLabel")}>
               <Link href="/projects">{t("nav.projects")}</Link>
-              <Link href="/market-data">{t("nav.marketData")}</Link>
-              <Link href="/news">{t("nav.insights")}</Link>
-              <Link href="/solutions">{t("nav.solutions")}</Link>
-              <Link href="/resources">{t("nav.resources")}</Link>
               <Link href="/about">{t("nav.about")}</Link>
             </nav>
-            <a className="login-link" href="#">
-              {t("nav.login")}
-            </a>
-            <div className="locale-switch" aria-label={t("nav.language")}>
-              <Link
-                className={`lang-link${locale === "en" ? " active" : ""}`}
-                href="/"
-                locale="en"
-              >
-                {t("nav.english")}
-              </Link>
-              <Link
-                className={`lang-link${locale === "zh" ? " active" : ""}`}
-                href="/"
-                locale="zh"
-              >
-                {t("nav.chinese")}
-              </Link>
-            </div>
           </div>
         </header>
         {children}
