@@ -3,7 +3,8 @@ import Image from "next/image";
 import Link from "next/link";
 import {notFound} from "next/navigation";
 import {getTranslations, setRequestLocale} from "next-intl/server";
-import {getAllPosts, getPostBySlug, renderMarkdown, formatPostDate} from "@/lib/news";
+import {getAllPosts, getPostBySlug, renderMarkdown} from "@/lib/news";
+import {formatPostDate} from "@/lib/news-utils";
 
 type NewsPostPageProps = {
   params: Promise<{locale: string; slug: string}>;

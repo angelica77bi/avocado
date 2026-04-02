@@ -177,6 +177,7 @@
     "description": "Corporate updates, market observations, and practical playbooks for clean energy and carbon procurement leaders.",
     "empty": "No articles published yet.",
     "readMore": "Read insight",
+    "searchPlaceholder": "Search articles...",
     "meta": {
       "title": "Insights | Carbon Ledger",
       "description": "Latest news and market intelligence on clean energy and carbon procurement."

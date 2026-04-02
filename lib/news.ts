@@ -4,33 +4,16 @@ import matter from "gray-matter";
 import {cache} from "react";
 import {remark} from "remark";
 import html from "remark-html";
+import type {
+  NewsFrontmatter,
+  NewsPost,
+  NewsPostSummary,
+  PaginatedPosts
+} from "./news-types";
+import {formatPostDate} from "./news-utils";
 
 const NEWS_CONTENT_DIR = path.join(process.cwd(), "content/news");
 export const POSTS_PER_PAGE = 10;
-
-export type NewsFrontmatter = {
-  title: string;
-  date: string;
-  category: string;
-  excerpt: string;
-  featuredImage: string;
-};
-
-export type NewsPost = NewsFrontmatter & {
-  slug: string;
-  content: string;
-};
-
-export type NewsPostSummary = Omit<NewsPost, "content">;
-
-export type PaginatedPosts = {
-  posts: NewsPostSummary[];
-  totalPosts: number;
-  currentPage: number;
-  totalPages: number;
-  hasPreviousPage: boolean;
-  hasNextPage: boolean;
-};
 
 function isString(value: unknown): value is string {
   return typeof value === "string" && value.trim().length > 0;
@@ -150,12 +133,4 @@ export async function renderMarkdown(markdown: string): Promise<string> {
   return processed.toString();
 }
 
-export function formatPostDate(date: string, locale: string): string {
-  const resolvedLocale = locale === "zh" ? "zh-CN" : "en-US";
-  return new Intl.DateTimeFormat(resolvedLocale, {
-    year: "numeric",
-    month: "short",
-    day: "numeric",
-    timeZone: "UTC"
-  }).format(new Date(`${date}T00:00:00.000Z`));
-}
+export {formatPostDate};

@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
-import type {NewsPostSummary} from "@/lib/news";
-import {formatPostDate} from "@/lib/news";
+import type {NewsPostSummary} from "@/lib/news-types";
+import {formatPostDate} from "@/lib/news-utils";
 import {useTranslations} from "next-intl";
 
 type NewsCardProps = {
