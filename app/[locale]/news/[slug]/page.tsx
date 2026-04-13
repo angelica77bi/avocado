@@ -60,7 +60,7 @@ export default async function NewsPostPage({params}: NewsPostPageProps) {
   const t = await getTranslations({locale, namespace: "Insights"});
 
   return (
-    <article className="mx-auto w-full max-w-4xl px-5 pb-24 pt-14 md:px-10">
+    <article className="mx-auto w-full min-w-0 max-w-4xl px-5 pb-24 pt-14 md:px-10">
       <header className="mb-12">
         <div className="mb-6 flex flex-wrap items-center gap-3 text-sm uppercase tracking-wider text-[var(--muted)]">
           <Link href={`/${locale}/news`} className="transition hover:text-[var(--accent)]">
@@ -84,14 +84,14 @@ export default async function NewsPostPage({params}: NewsPostPageProps) {
             alt={post.title}
             fill
             priority
-            sizes="100vw"
+            sizes="(max-width: 1024px) 100vw, 1024px"
             className="object-cover"
           />
         </div>
       )}
 
       <div
-        className="prose prose-lg max-w-none prose-headings:font-display prose-headings:font-normal prose-a:text-[var(--accent)] prose-img:rounded-3xl"
+        className="prose prose-lg max-w-none break-words prose-headings:font-display prose-headings:font-normal prose-a:text-[var(--accent)] prose-img:max-w-full prose-img:rounded-3xl"
         dangerouslySetInnerHTML={{ __html: contentHtml }}
       />
 

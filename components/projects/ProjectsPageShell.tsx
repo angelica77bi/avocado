@@ -293,7 +293,7 @@ export default function ProjectsPageShell() {
         </p>
 
         <div className="mx-auto mt-8 flex max-w-4xl flex-col gap-3 md:flex-row md:items-center">
-          <label className="block flex-1">
+          <label className="block min-w-0 flex-1">
             <span className="sr-only">{t("search.label")}</span>
             <input
               type="search"
@@ -358,7 +358,7 @@ export default function ProjectsPageShell() {
 
       <section className="relative z-10 mt-8 rounded-[28px] border border-[var(--line)] bg-[var(--surface)] p-5 shadow-[0_16px_40px_rgba(35,77,54,0.05)] md:p-6">
         <div className="mb-5 flex flex-col gap-2 md:flex-row md:items-end md:justify-between">
-          <div>
+          <div className="min-w-0">
             <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[var(--muted)]">
               {t("list.eyebrow")}
             </p>
@@ -366,7 +366,7 @@ export default function ProjectsPageShell() {
               {t("list.title")}
             </h2>
           </div>
-          <p className="max-w-md text-sm leading-6 text-[var(--muted)]">
+          <p className="min-w-0 max-w-md text-sm leading-6 text-[var(--muted)]">
             {t("list.description")}
           </p>
         </div>
@@ -383,7 +383,7 @@ export default function ProjectsPageShell() {
                 className="group relative flex flex-col justify-between rounded-[24px] border border-[var(--line)] bg-[linear-gradient(180deg,color-mix(in_srgb,var(--surface)_88%,white_12%)_0%,color-mix(in_srgb,var(--background)_68%,white_32%)_100%)] p-5 shadow-[0_14px_28px_rgba(35,77,54,0.06)] transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-[0_20px_40px_rgba(35,77,54,0.12)]"
               >
                 <div>
-                  <div className="flex items-center justify-between gap-4">
+                  <div className="flex min-w-0 items-center justify-between gap-4">
                     <span className="inline-flex items-center rounded-full bg-[color-mix(in_srgb,var(--accent)_12%,transparent)] px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider text-[var(--accent)]">
                       {project.type}
                     </span>
@@ -400,13 +400,13 @@ export default function ProjectsPageShell() {
                   </h3>
 
                   <ul className="mt-4 space-y-2.5 text-sm text-[var(--muted)]">
-                    <li className="flex items-center justify-between">
+                    <li className="flex min-w-0 items-center justify-between gap-3">
                       <span>{t("list.card.capacity")}</span>
-                      <span className="font-medium text-[var(--foreground)]">{project.capacity_mw} MW</span>
+                      <span className="text-right font-medium text-[var(--foreground)]">{project.capacity_mw} MW</span>
                     </li>
-                    <li className="flex items-center justify-between">
+                    <li className="flex min-w-0 items-center justify-between gap-3">
                       <span>{t("list.card.developer")}</span>
-                      <span className="font-medium text-[var(--foreground)]">{project.developer}</span>
+                      <span className="text-right font-medium text-[var(--foreground)]">{project.developer}</span>
                     </li>
                   </ul>
                 </div>

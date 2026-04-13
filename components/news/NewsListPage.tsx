@@ -33,8 +33,8 @@ export default function NewsListPage({
   return (
     <main className="mx-auto w-full max-w-7xl px-5 pb-16 pt-14 md:px-10">
       <header className="mb-10 rounded-3xl border border-[var(--line)] bg-[linear-gradient(150deg,color-mix(in_srgb,var(--surface)_75%,white_25%)_0%,color-mix(in_srgb,var(--accent-soft)_45%,white_55%)_100%)] px-7 py-10 md:px-12">
-        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6">
-          <div className="max-w-2xl">
+        <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
+          <div className="min-w-0 max-w-2xl">
             <p className="text-xs uppercase tracking-[0.2em] text-[var(--muted)]">
               {t("eyebrow")}
             </p>
@@ -45,7 +45,7 @@ export default function NewsListPage({
               {t("description")}
             </p>
           </div>
-          <div className="w-full md:w-80">
+          <div className="w-full min-w-0 md:w-80">
             <input
               type="search"
               value={searchQuery}

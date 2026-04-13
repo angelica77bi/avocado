@@ -138,14 +138,14 @@ export default async function HomePage({
         {recentPosts.length > 0 && (
           <section className="section">
             <div className="container">
-              <div className="flex items-end justify-between mb-8">
-                <div>
+              <div className="mb-8 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+                <div className="min-w-0">
                   <p className="eyebrow">{t("recentInsights.eyebrow")}</p>
                   <h2>{t("recentInsights.title")}</h2>
                 </div>
                 <Link
                   href="/news"
-                  className="mb-8 hidden text-sm font-semibold uppercase tracking-wider text-[var(--accent)] transition hover:text-[var(--accent-strong)] md:block"
+                  className="hidden text-sm font-semibold uppercase tracking-wider text-[var(--accent)] transition hover:text-[var(--accent-strong)] md:block"
                 >
                   {t("recentInsights.viewAll")} →
                 </Link>

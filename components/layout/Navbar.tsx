@@ -18,8 +18,12 @@ export default function Navbar({locale, brandName}: NavbarProps) {
     if (isOpen) {
       document.body.style.overflow = "hidden";
     } else {
-      document.body.style.overflow = "unset";
+      document.body.style.removeProperty("overflow");
     }
+
+    return () => {
+      document.body.style.removeProperty("overflow");
+    };
   }, [isOpen]);
 
   return (
